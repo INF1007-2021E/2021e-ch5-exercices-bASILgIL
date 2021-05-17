@@ -1,34 +1,78 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import math
 
 
 from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number < 0:
+        return number * (-1)
+    else:
+        return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
-
-    return [""]
+    noms = []
+    for lettre in prefixes:
+        noms.append(lettre + suffixe)
+    return noms
 
 
 def prime_integer_summation() -> int:
-    return 0
+    nombres_premiers = [2,3,5,7]
+    while len(nombres_premiers) <= 100:
+        for number in range(8,10000):
+            for i in range(2, number // 2):
+                if (number % i) == 0:
+                    break
+            else:
+                nombres_premiers.append(number)
+
+    return sum(nombres_premiers)
+
 
 
 def factorial(number: int) -> int:
-    return 0
+    if number == 0:
+        return 1
+    else:
+        return number * factorial(number - 1)
+
 
 
 def use_continue() -> None:
-    pass
+    for num in range(1,11):
+        if num == 5:
+            continue
+        print(num)
+
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    acceptance = []
+    for group in groups:
+        if len(group) > 10 or len(group) <= 3:
+            acceptance.append(False)
+            continue
+        if 25 in group:
+            acceptance.append(True)
+            continue
+        if min(group) < 18:
+            acceptance.append(False)
+            continue
+        if max(group) > 70 and 50 in group:
+            acceptance.append(False)
+            continue
+        acceptance.append(True)
+    return acceptance
+
+
+
+    return acceptance
+
 
 
 def main() -> None:
