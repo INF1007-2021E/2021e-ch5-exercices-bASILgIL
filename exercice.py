@@ -20,23 +20,6 @@ def use_prefixes() -> List[str]:
         noms.append(lettre + suffixe)
     return noms
 
-"""def is_prime(number):
-    for n in range(2, number//2):
-        if number % n == 0:
-            return False
-
-    return True
-
-def prime_integer_summation() -> int:
-    prime_numbers = [2, 3, 5, 7]
-    number = 8
-    while len(prime_numbers) < 100:
-        if is_prime(number):
-            prime_numbers.append(number)
-        number += 1
-
-    return sum(prime_numbers)"""
-
 
 
 
@@ -83,39 +66,39 @@ def factorial(number: int) -> int:
         return 1
     return number * factorial(number - 1)
 
-
-
-
+    """factorial_number = 1
+    for n in range(2,number + 1):
+        factorial_number *= n #1*2*3*...*number
+    return factorial_number"""
 
 def use_continue() -> None:
-    for num in range(1,11):
-        if num == 5:
+    for i in range(1,11):
+        if i == 5:
             continue
-        print(num)
+        print(i)
 
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
     acceptance = []
     for group in groups:
+
         if len(group) > 10 or len(group) <= 3:
             acceptance.append(False)
             continue
-        if 25 in group:
+        if 25 in group: # elif doesnt need continue
             acceptance.append(True)
             continue
-        if min(group) < 18:
+        if (min(group) < 18) or (max(group) > 70 and 50 in group):
             acceptance.append(False)
             continue
-        if max(group) > 70 and 50 in group:
-            acceptance.append(False)
-            continue
+
         acceptance.append(True)
-    return acceptance
-
-
 
     return acceptance
+
+
+
 
 
 
