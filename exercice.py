@@ -9,8 +9,8 @@ from typing import List
 def convert_to_absolute(number: float) -> float:
     if number < 0:
         return number * (-1)
-    else:
-        return number
+
+    return number
 
 
 def use_prefixes() -> List[str]:
@@ -20,26 +20,70 @@ def use_prefixes() -> List[str]:
         noms.append(lettre + suffixe)
     return noms
 
+"""def is_prime(number):
+    for n in range(2, number//2):
+        if number % n == 0:
+            return False
+
+    return True
 
 def prime_integer_summation() -> int:
-    nombres_premiers = [2,3,5,7]
-    while len(nombres_premiers) <= 100:
-        for number in range(8,10000):
-            for i in range(2, number // 2):
-                if (number % i) == 0:
-                    break
-            else:
-                nombres_premiers.append(number)
+    prime_numbers = [2, 3, 5, 7]
+    number = 8
+    while len(prime_numbers) < 100:
+        if is_prime(number):
+            prime_numbers.append(number)
+        number += 1
+
+    return sum(prime_numbers)"""
+
+
+
+
+"""def is_prime(number):
+    for n in range(2, number//2):
+        if number % n == 0:
+            return False
+    return True
+
+def prime_integer_summation() -> int:
+    nombres_premiers = [2,3,5]
+    number = 6
+    while len(nombres_premiers) < 100:
+        if is_prime(number):
+            nombres_premiers.append(number)
+        number += 1
+
+    return sum(nombres_premiers)"""
+
+def prime_integer_summation() -> int:
+    nombres_premiers = [2,3,5]
+    number = 6
+
+    while len(nombres_premiers) < 100:
+        is_prime = True
+        for n in range(2, number//2):
+            if n > number/2:
+                break
+            if number % n == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            nombres_premiers.append(number)
+        number += 1
 
     return sum(nombres_premiers)
+
 
 
 
 def factorial(number: int) -> int:
     if number == 0:
         return 1
-    else:
-        return number * factorial(number - 1)
+    return number * factorial(number - 1)
+
+
 
 
 
